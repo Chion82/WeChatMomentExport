@@ -10,7 +10,7 @@ Supported WeChat Versions（目前支持的微信版本）:
 
 [WeChat 6.3.13](https://github.com/Chion82/WeChatMomentExport/raw/master/weixin6313android740.apk)
 
-![](ttps://github.com/Chion82/WeChatMomentExport/raw/master/demo_1.jpg)
+![](https://raw.githubusercontent.com/Chion82/WeChatMomentExport/master/demo_1.jpg)
 
 Download
 --------
