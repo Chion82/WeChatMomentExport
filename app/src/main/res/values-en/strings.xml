@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WeChatMomentsExport</string>
+    <string name="description_0">WeChatMomentsExport helps you dump WeChat moments data into JSON file. To dump moments of a specific friend, start intercept and directly enter his/her moments page from the contact list.</string>
+    <string name="enabled_label">Enabled(Click SAVE button to apply; the output file will be emptied when re-enabling.)</string>
+    <string name="output_file_path_label">Output File Path:</string>
+    <string name="save_button_text">Save</string>
+    <string name="save_success_hint">Successfully saved.</string>
+    <string name="wechat_version_label">WeChat version</string>
+    <string name="wechat_version_supported">Hurray! WeChat version is supported.</string>
+    <string name="wechat_version_unsupported">Ops! WeChat version is not supported.</string>
+    <string name="wechat_not_found">WeChat not found.</string>
+    <string name="supported_wechat_versions">Supported WeChat versions</string>
+    <string name="start_intercept">Start Intercept</string>
+    <string name="stop_intercept">Stop Intercept</string>
+    <string name="sns_captured">Moments captured</string>
+    <string name="stopped">Intercept stopped.</string>
+    <string name="started">Intercept started.</string>
+</resources>
