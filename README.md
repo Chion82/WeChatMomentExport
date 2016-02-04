@@ -10,7 +10,7 @@ Supported WeChat Versions（目前支持的微信版本）:
 
 [WeChat 6.3.13](https://github.com/Chion82/WeChatMomentExport/raw/master/weixin6313android740.apk)
 
-![](https://raw.githubusercontent.com/Chion82/WeChatMomentExport/master/demo_1.jpg)
+<img src="https://raw.githubusercontent.com/Chion82/WeChatMomentExport/master/demo_1.jpg"  width="400px" >
 
 Download
 --------
@@ -62,7 +62,7 @@ Usage
 Known Issues
 ------------
 
-*  由于朋友圈异步加载顺序的原因，未显示出来、已预加载的朋友圈也能被抓取，但是评论和点赞数据将会为空。因此每次抓取的结果中最后的几条朋友圈数据是没有评论的点赞数据的。
+*  由于朋友圈异步加载顺序的原因，未显示出来、已预加载的朋友圈也能被抓取，但是评论和点赞数据将会为空。因此每次抓取的结果中最后的几条朋友圈数据是没有评论和点赞数据的。
 
 Build Requirements
 ------------------
