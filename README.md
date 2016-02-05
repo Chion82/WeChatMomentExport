@@ -12,13 +12,18 @@ Supported WeChat Versions（目前支持的微信版本）:
 
 <img src="https://raw.githubusercontent.com/Chion82/WeChatMomentExport/master/demo_1.jpg"  width="400px" >
 
+PS：作者发现在微信的朋友圈缓存SQLite文件中存在明文数据，只需分析BLOB数据结构即可。下个版本可能将不会是Xposed模块。  
+（我可是花了很长时间逆向apk的(￣^￣)ゞ 可以先去死一死了(T ^ T) ）
+
 Download
 --------
 
-[2.0 beta](https://github.com/Chion82/WeChatMomentExport/releases/download/untagged-4edb698347398e740411/wechatmomentexport2.0beta.apk)  
+[2.1 beta](https://github.com/Chion82/WeChatMomentExport/releases/download/untagged-c8a9f64c2c234aebb07c/wechatmomentexport2.1beta.apk)  
 
 Change Log
 ----------
+
+* 2016-2-6 支持微信版本6.3.13.64_r4488992，修复抓取数据不齐的问题。因为需要清空微信朋友圈缓存，本APP将需要获得root权限。
 
 * 2016-2-4 支持微信版本6.3.13，支持朋友圈图片视频等完整数据的导出，逆向APK时成功分析朋友圈数据模型，增加GUI配置面板
 
@@ -30,6 +35,8 @@ Usage
 * Make sure your Android device is rooted with Xposed Framework installed.
 
 * Install and enable this Xposed module on your device. Reboot.
+
+* Grant root access for the app.
 
 * In the GUI preference panel, click "START INTERCEPT".
 
@@ -47,6 +54,8 @@ Usage
 
 * 安装并启用本Xposed模块，然后重启手机。
 
+* 允许本app获得root权限。
+
 * 打开本模块的GUI设置页并点击“开始抓取”。
 
 * 打开微信并进入朋友圈页面。
@@ -62,7 +71,7 @@ Usage
 Known Issues
 ------------
 
-*  由于朋友圈异步加载顺序的原因，未显示出来、已预加载的朋友圈也能被抓取，但是评论和点赞数据将会为空。因此每次抓取的结果中最后的几条朋友圈数据是没有评论和点赞数据的。
+* 个人相册中无法抓取纯文本朋友圈。
 
 Build Requirements
 ------------------
