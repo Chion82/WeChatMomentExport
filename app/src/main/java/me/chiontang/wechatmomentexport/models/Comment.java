@@ -8,15 +8,6 @@ public class Comment {
     public String content;
     public String toUser;
     public String authorId;
+    public String toUserId;
 
-    public Comment(String authorId, String authorName, String content, String toUser) {
-        Comment.this.authorId = authorId;
-        Comment.this.authorName = authorName;
-        Comment.this.content = content;
-        Comment.this.toUser = toUser;
-    }
-
-    public Comment() {
-
-    }
 }

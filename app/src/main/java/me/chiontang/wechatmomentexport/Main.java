@@ -3,7 +3,6 @@ package me.chiontang.wechatmomentexport;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,8 +23,9 @@ import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 import me.chiontang.wechatmomentexport.models.Comment;
+import me.chiontang.wechatmomentexport.models.Like;
 import me.chiontang.wechatmomentexport.models.Tweet;
-
+import me.chiontang.wechatmomentexport.models.User;
 
 public class Main implements IXposedHookLoadPackage {
 
@@ -133,12 +133,12 @@ public class Main implements IXposedHookLoadPackage {
     }
 
     private void parseTimelineXML(String xmlResult) throws Throwable {
-        Pattern usernamePattern = Pattern.compile("<username><!\\[CDATA\\[(.+?)\\]\\]></username>");
-        Pattern contentPattern = Pattern.compile("<contentDesc><!\\[CDATA\\[(.+?)\\]\\]></contentDesc>");
+        Pattern userIdPattern = Pattern.compile("<username><!\\[CDATA\\[(.+?)\\]\\]></username>");
+        Pattern contentPattern = Pattern.compile("<contentDesc><!\\[CDATA\\[(.+?)\\]\\]></contentDesc>", Pattern.DOTALL);
         Pattern mediaPattern = Pattern.compile("<media>.*?<url.*?><!\\[CDATA\\[(.+?)\\]\\]></url>.*?</media>");
         Pattern timestampPattern = Pattern.compile("<createTime><!\\[CDATA\\[(.+?)\\]\\]></createTime>");
 
-        Matcher usernameMatcher = usernamePattern.matcher(xmlResult);
+        Matcher userIdMatcher = userIdPattern.matcher(xmlResult);
         Matcher contentMatcher = contentPattern.matcher(xmlResult);
         Matcher mediaMatcher = mediaPattern.matcher(xmlResult);
         Matcher timestampMatcher = timestampPattern.matcher(xmlResult);
@@ -151,8 +151,8 @@ public class Main implements IXposedHookLoadPackage {
             currentTweet.timestamp = Integer.parseInt(timestampMatcher.group(1));
         }
 
-        if (usernameMatcher.find()) {
-            currentTweet.authorId = usernameMatcher.group(1);
+        if (userIdMatcher.find()) {
+            currentTweet.authorId = userIdMatcher.group(1);
         }
 
         if (contentMatcher.find()) {
@@ -170,6 +170,7 @@ public class Main implements IXposedHookLoadPackage {
             if (flag)
                 currentTweet.mediaList.add(mediaMatcher.group(1));
         }
+
     }
 
     private void parseSnsObject(Object aqiObject) throws Throwable{
@@ -202,6 +203,7 @@ public class Main implements IXposedHookLoadPackage {
             return;
         }
 
+        matchTweet.ready = true;
         matchTweet.author = (String)nickname;
         field = aqiObject.getClass().getField(Config.PROTOCAL_SNS_OBJECT_COMMENTS_FIELD);
         LinkedList list = (LinkedList)field.get(aqiObject);
@@ -249,6 +251,7 @@ public class Main implements IXposedHookLoadPackage {
             newComment.authorName = (String) authorName;
             newComment.content = (String) commentContent;
             newComment.authorId = (String) authorId;
+            newComment.toUserId = (String) replyToUserId;
 
             for (int i = 0; i < matchTweet.comments.size(); i++) {
                 Comment loadedComment = matchTweet.comments.get(i);
@@ -262,18 +265,24 @@ public class Main implements IXposedHookLoadPackage {
         } else {
             Field field = apzObject.getClass().getField(Config.SNS_OBJECT_EXT_AUTHOR_NAME_FIELD);
             Object nickname = field.get(apzObject);
-            if (nickname == null) {
+            field = apzObject.getClass().getField(Config.SNS_OBJECT_EXT_AUTHOR_ID_FIELD);
+            Object userId = field.get(apzObject);
+            if (nickname == null || userId == null) {
                 return;
             }
-            if (((String)nickname).equals("")) {
+
+            if (((String)userId).equals("")) {
                 return;
             }
             for (int i = 0; i < matchTweet.likes.size(); i++) {
-                if (matchTweet.likes.get(i).equals((String)nickname)) {
+                if (matchTweet.likes.get(i).userId.equals((String)userId)) {
                     return;
                 }
             }
-            matchTweet.likes.add((String)nickname);
+            Like newLike = new Like();
+            newLike.userId = (String)userId;
+            newLike.userName = (String)nickname;
+            matchTweet.likes.add(newLike);
         }
     }
 
@@ -292,9 +301,6 @@ public class Main implements IXposedHookLoadPackage {
 
         Tweet tweetToAdd = currentTweet.clone();
         if (replaceIndex == -1) {
-            if (tweetList.size() > 0) {
-                //tweetList.get(tweetList.size()-1).print();
-            }
             tweetList.add(tweetToAdd);
         } else {
             tweetList.remove(replaceIndex);

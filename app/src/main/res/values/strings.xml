@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">微信朋友圈导出</string>
+    <string name="app_name">微信朋友圈导出工具</string>
     <string name="description_0">本工具可抓取微信朋友圈内容并导出为JSON。如需抓取指定好友的朋友圈，开始抓取后直接从微信联系人进入好友朋友圈页面即可。开始抓取后原输出JSON文件会被覆盖。</string>
+    <string name="description_1">请先允许本工具获得root权限。</string>
     <string name="enabled_label">启用（保存后生效; 禁用后再次启用时会清空导出的JSON文件）</string>
     <string name="output_file_path_label">输出文件路径:</string>
     <string name="save_button_text">保存</string>
@@ -16,4 +17,5 @@
     <string name="sns_captured">已抓取朋友圈</string>
     <string name="stopped">已停止</string>
     <string name="started">已开始抓取</string>
+    <string name="no_root">没有root权限</string>
 </resources>

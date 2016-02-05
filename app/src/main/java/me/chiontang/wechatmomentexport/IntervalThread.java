@@ -44,23 +44,33 @@ public class IntervalThread extends Thread {
 
         for (int tweetIndex=0; tweetIndex<tweetList.size(); tweetIndex++) {
             Tweet currentTweet = tweetList.get(tweetIndex);
+            if (!currentTweet.ready) {
+                continue;
+            }
             JSONObject tweetJSON = new JSONObject();
             JSONArray commentsJSON = new JSONArray();
             JSONArray likesJSON = new JSONArray();
             JSONArray mediaListJSON = new JSONArray();
             try {
-                tweetJSON.put("author", currentTweet.author);
+                tweetJSON.put("snsId", currentTweet.id);
+                tweetJSON.put("authorName", currentTweet.author);
+                tweetJSON.put("authorId", currentTweet.authorId);
                 tweetJSON.put("content", currentTweet.content);
                 for (int i = 0; i < currentTweet.comments.size(); i++) {
                     JSONObject commentJSON = new JSONObject();
-                    commentJSON.put("author", currentTweet.comments.get(i).authorName);
+                    commentJSON.put("authorName", currentTweet.comments.get(i).authorName);
+                    commentJSON.put("authorId", currentTweet.comments.get(i).authorId);
                     commentJSON.put("content", currentTweet.comments.get(i).content);
-                    commentJSON.put("to_user", currentTweet.comments.get(i).toUser);
+                    commentJSON.put("toUserName", currentTweet.comments.get(i).toUser);
+                    commentJSON.put("toUserId", currentTweet.comments.get(i).toUserId);
                     commentsJSON.put(commentJSON);
                 }
                 tweetJSON.put("comments", commentsJSON);
                 for (int i = 0; i < currentTweet.likes.size(); i++) {
-                    likesJSON.put(currentTweet.likes.get(i));
+                    JSONObject likeJSON = new JSONObject();
+                    likeJSON.put("userName", currentTweet.likes.get(i).userName);
+                    likeJSON.put("userId", currentTweet.likes.get(i).userId);
+                    likesJSON.put(likeJSON);
                 }
                 tweetJSON.put("likes", likesJSON);
                 for (int i = 0; i < currentTweet.mediaList.size(); i++) {

@@ -12,37 +12,37 @@ public class Config {
 
     static String outputFile = Environment.getExternalStorageDirectory() + "/moments_output.json";
 
-    final static String[] VERSIONS = {"6.3.13.49_r4080b63"};
+    final static String[] VERSIONS = {"6.3.13.49_r4080b63", "6.3.13.64_r4488992"};
 
-    final static String[] PROTOCAL_SNS_DETAIL_CLASSES = {"com.tencent.mm.protocal.b.atp"};
+    final static String[] PROTOCAL_SNS_DETAIL_CLASSES = {"com.tencent.mm.protocal.b.atp", "com.tencent.mm.protocal.b.atp"};
 
-    final static String[] PROTOCAL_SNS_DETAIL_METHODS = {"a"};
+    final static String[] PROTOCAL_SNS_DETAIL_METHODS = {"a", "a"};
 
-    final static String[] SNS_XML_GENERATOR_CLASSES = {"com.tencent.mm.plugin.sns.f.i"};
+    final static String[] SNS_XML_GENERATOR_CLASSES = {"com.tencent.mm.plugin.sns.f.i", "com.tencent.mm.plugin.sns.f.i"};
 
-    final static String[] SNS_XML_GENERATOR_METHODS = {"a"};
+    final static String[] SNS_XML_GENERATOR_METHODS = {"a", "a"};
 
-    final static String[] PROTOCAL_SNS_OBJECT_CLASSES = {"com.tencent.mm.protocal.b.aqi"};
+    final static String[] PROTOCAL_SNS_OBJECT_CLASSES = {"com.tencent.mm.protocal.b.aqi", "com.tencent.mm.protocal.b.aqi"};
 
-    final static String[] PROTOCAL_SNS_OBJECT_METHODS = {"a"};
+    final static String[] PROTOCAL_SNS_OBJECT_METHODS = {"a", "a"};
 
-    final static String[] PROTOCAL_SNS_OBJECT_USERID_FIELDS = {"iYA"};
+    final static String[] PROTOCAL_SNS_OBJECT_USERID_FIELDS = {"iYA", "iYA"};
 
-    final static String[] PROTOCAL_SNS_OBJECT_NICKNAME_FIELDS = {"jyd"};
+    final static String[] PROTOCAL_SNS_OBJECT_NICKNAME_FIELDS = {"jyd", "jyd"};
 
-    final static String[] PROTOCAL_SNS_OBJECT_TIMESTAMP_FIELDS = {"fpL"};
+    final static String[] PROTOCAL_SNS_OBJECT_TIMESTAMP_FIELDS = {"fpL", "fpL"};
 
-    final static String[] PROTOCAL_SNS_OBJECT_COMMENTS_FIELDS = {"jJX"};
+    final static String[] PROTOCAL_SNS_OBJECT_COMMENTS_FIELDS = {"jJX", "jJX"};
 
-    final static String[] PROTOCAL_SNS_OBJECT_LIKES_FIELDS = {"jJU"};
+    final static String[] PROTOCAL_SNS_OBJECT_LIKES_FIELDS = {"jJU", "jJU"};
 
-    final static String[] SNS_OBJECT_EXT_AUTHOR_NAME_FIELDS = {"jyd"};
+    final static String[] SNS_OBJECT_EXT_AUTHOR_NAME_FIELDS = {"jyd", "jyd"};
 
-    final static String[] SNS_OBJECT_EXT_REPLY_TO_FIELDS = {"jJM"};
+    final static String[] SNS_OBJECT_EXT_REPLY_TO_FIELDS = {"jJM", "jJM"};
 
-    final static String[] SNS_OBJECT_EXT_COMMENT_FIELDS = {"fsI"};
+    final static String[] SNS_OBJECT_EXT_COMMENT_FIELDS = {"fsI", "fsI"};
 
-    final static String[] SNS_OBJECT_EXT_AUTHOR_ID_FIELDS = {"iYA"};
+    final static String[] SNS_OBJECT_EXT_AUTHOR_ID_FIELDS = {"iYA", "iYA"};
 
     static String PROTOCAL_SNS_DETAIL_CLASS;
 
