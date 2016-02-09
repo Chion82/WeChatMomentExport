@@ -12,13 +12,12 @@ Supported WeChat Versions（目前支持的微信版本）:
 
 <img src="https://raw.githubusercontent.com/Chion82/WeChatMomentExport/master/demo_1.jpg"  width="400px" >
 
-PS：作者发现在微信的朋友圈缓存SQLite文件中存在明文数据，只需分析BLOB数据结构即可。下个版本可能将不会是Xposed模块。  
-（我可是花了很长时间逆向apk的(￣^￣)ゞ 可以先去死一死了(T ^ T) ）
+PS：下个版本将整合WeChatMomentExport和WeChatMomentStat，GUI提供更完整的预览和筛选功能，并展示朋友圈各种统计数据。
 
 Download
 --------
 
-[2.1 beta](https://github.com/Chion82/WeChatMomentExport/releases/download/untagged-c8a9f64c2c234aebb07c/wechatmomentexport2.1beta.apk)  
+[WeChatMomentExport Releases](https://github.com/Chion82/WeChatMomentExport/releases)  
 
 Change Log
 ----------
