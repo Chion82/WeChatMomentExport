@@ -1,5 +1,8 @@
 WeChat Moment Export
 --------------------
+Deprecated. Try [WeChatMomentStat-Android](https://github.com/Chion82/WeChatMomentStat-Android) instead!
+
+本项目已不再维护。请移步至无需依赖Xposed的[WeChatMomentStat-Android](https://github.com/Chion82/WeChatMomentStat-Android)
 
 WeChatModuleExport is an Xposed module which helps you export WeChat moment data to JSON files.
 
@@ -11,8 +14,6 @@ Supported WeChat Versions（目前支持的微信版本）:
 [WeChat 6.3.13](https://github.com/Chion82/WeChatMomentExport/raw/master/weixin6313android740.apk)
 
 <img src="https://raw.githubusercontent.com/Chion82/WeChatMomentExport/master/demo_1.jpg"  width="400px" >
-
-PS：下个版本将整合WeChatMomentExport和WeChatMomentStat，GUI提供更完整的预览和筛选功能，并展示朋友圈各种统计数据。
 
 Download
 --------
