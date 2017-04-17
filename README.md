@@ -30,7 +30,7 @@ Change Log
 Usage
 -----
 
-##EN
+## EN
 
 * Make sure your Android device is rooted with Xposed Framework installed.
 
@@ -48,7 +48,7 @@ Usage
 
 * By default, the generated JSON file is ```moments_output.json``` located in the root directory of the external storage.
 
-##ZH
+## ZH
 
 * 确认安卓设备已root并安装好Xposed框架。
 
